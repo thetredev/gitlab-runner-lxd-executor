@@ -1,0 +1,17 @@
+[[runners]]
+  name = "my-lxd-runner"
+  url = "https://www.gitlab.com"
+  token = "xxxxxxxxxxx"
+  executor = "custom"
+  builds_dir = "/builds"
+  cache_dir = "/cache"
+
+  [runners.custom]
+    prepare_exec = "/usr/local/bin/gitlab-runner-lxd.sh"
+    prepare_args = ["prepare"]
+
+    run_exec = "/usr/local/bin/gitlab-runner-lxd.sh"
+    run_args = ["run"]
+
+    cleanup_exec = "/usr/local/bin/gitlab-runner-lxd.sh"
+    cleanup_args = ["cleanup"]
